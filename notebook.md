@@ -8,6 +8,6 @@
 
 ## Week 1 (01/13/2020 - 01/19/2020)
 
-  - Filled out class survey
+  - Filled out class survey 
   - Submitted Bio on Piazza
   - Signed up on Chameleon 
