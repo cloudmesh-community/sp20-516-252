@@ -10,4 +10,4 @@
 
   - Filled out class survey
   - Submitted Bio on Piazza
-  - Signed up on Chameleon
+  - Signed up on Chameleon 
