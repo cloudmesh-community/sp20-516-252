@@ -1,5 +1,7 @@
 # datacenter.md sp20-516-252
 
+:o2: please learn markdown, attending eductaional section mandatory
+
 :o2: all hrefs wrong
 
 ## Facebook's Data Center at Los Lunas, NM 
