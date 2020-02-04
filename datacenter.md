@@ -12,12 +12,12 @@ In the year of 2018, this data center has used 26,000 MWh electricity, had opera
 
 ### References
 
-1. https://apnews.com/d9396a5f9b9d4b5fa6383fbdd68f37cf
-2. https://www.krqe.com/news/latest-news/facebook-data-center-opens-in-los-lunas/
-3. https://www.lcsun-news.com/story/news/local/new-mexico/2019/02/08/facebook-marks-opening-sprawling-new-mexico-data-center/2808159002/
-4. http://www.news-bulletin.com/news/facebook-data-center-opens-in-los-lunas/article_1253ad72-2fc4-11e9-aa3e-a311b9bceb45.html
-5. https://www.abqjournal.com/1277850/facebook-opens-data-center-in-los-lunas.html
-6. https://sustainability.fb.com/wp-content/uploads/2019/08/2018-Sustainability-Data-Disclosure.pdf
+1. <https://apnews.com/d9396a5f9b9d4b5fa6383fbdd68f37cf>
+2. <https://www.krqe.com/news/latest-news/facebook-data-center-opens-in-los-lunas/>
+3. <https://www.lcsun-news.com/story/news/local/new-mexico/2019/02/08/facebook-marks-opening-sprawling-new-mexico-data-center/2808159002/>
+4. <http://www.news-bulletin.com/news/facebook-data-center-opens-in-los-lunas/article_1253ad72-2fc4-11e9-aa3e-a311b9bceb45.html>
+5. <https://www.abqjournal.com/1277850/facebook-opens-data-center-in-los-lunas.html>
+6. <https://sustainability.fb.com/wp-content/uploads/2019/08/2018-Sustainability-Data-Disclosure.pdf>
 
 ## Hydroelectric Energy
 
@@ -25,10 +25,10 @@ Hydroelectric energy is a type of renewable, clean energy that uses power by wat
 
 ### References
 
-1. https://www.nationalgeographic.org/encyclopedia/hydroelectric-energy/
-2. https://www.greenbiz.com/blog/2013/06/13/facebook-flicks-hydropowered-data-center-sweden
-3. https://www.utilitydive.com/news/powering-data-centers-with-clean-energy-247-no-easy-feat-google-finds/539497/
-4. https://www.waterpowermagazine.com/news/newshydro-powers-volkswagen-data-center-in-norway-7281947
+1. <https://www.nationalgeographic.org/encyclopedia/hydroelectric-energy/>
+2. <https://www.greenbiz.com/blog/2013/06/13/facebook-flicks-hydropowered-data-center-sweden>
+3. <https://www.utilitydive.com/news/powering-data-centers-with-clean-energy-247-no-easy-feat-google-finds/539497/>
+4. <https://www.waterpowermagazine.com/news/newshydro-powers-volkswagen-data-center-in-norway-7281947>
 
 ## China's Renewable Energy Efforts
 
@@ -39,9 +39,9 @@ Such investments in renewable energy have brought many positive impacts to Chine
 
 ### References
 
-1. https://en.wikipedia.org/wiki/Renewable_energy_in_China
-2. https://www.csis.org/east-green-chinas-global-leadership-renewable-energy
-3. https://chinapower.csis.org/energy-footprint/
+1. <https://en.wikipedia.org/wiki/Renewable_energy_in_China>
+2. <https://www.csis.org/east-green-chinas-global-leadership-renewable-energy>
+3. <https://chinapower.csis.org/energy-footprint/>
 
 ## Data Center Outages
 
@@ -51,7 +51,7 @@ Similarly, a mistyped command line by an Amazon engineer caused a four-hour AWS 
 
 ### References
 
-1. https://www.networkworld.com/article/3200105/british-airways-outage-like-most-data-center-outages-was-caused-by-humans.html
-2. https://www.theguardian.com/business/2017/may/30/british-airways-ba-owner-drops-value-it-meltdown
-3. https://www.datacenterknowledge.com/archives/2017/03/02/aws-outage-that-broke-the-internet-caused-by-mistyped-command
+1. <https://www.networkworld.com/article/3200105/british-airways-outage-like-most-data-center-outages-was-caused-by-humans.html>
+2. <https://www.theguardian.com/business/2017/may/30/british-airways-ba-owner-drops-value-it-meltdown>
+3. <https://www.datacenterknowledge.com/archives/2017/03/02/aws-outage-that-broke-the-internet-caused-by-mistyped-command>
 
