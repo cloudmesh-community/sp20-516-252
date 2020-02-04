@@ -54,4 +54,3 @@ Similarly, a mistyped command line by an Amazon engineer caused a four-hour AWS 
 1. <https://www.networkworld.com/article/3200105/british-airways-outage-like-most-data-center-outages-was-caused-by-humans.html>
 2. <https://www.theguardian.com/business/2017/may/30/british-airways-ba-owner-drops-value-it-meltdown>
 3. <https://www.datacenterknowledge.com/archives/2017/03/02/aws-outage-that-broke-the-internet-caused-by-mistyped-command>
-
