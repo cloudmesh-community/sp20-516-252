@@ -1,5 +1,7 @@
 # Datacenter sp20-516-252, Zhu, Jessica
 
+:o2: use bibtex
+
 ## Facebook's Data Center at Los Lunas, NM 
  
 A new data center by Facebook was open in early 2019 in Los Lunas, New Mexico after two years of construction with an investment of 1 billion dollars. Only one of six buildings has been completed so far and the construction will last till 2023.
