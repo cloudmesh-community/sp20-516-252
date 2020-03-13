@@ -6,6 +6,6 @@ owner:
   community: "516"
   semester: "sp20"
   project:
-    - keyword: Cloudmesh GUI
-      title: Cloudmesh GUI
+    - keyword: Hadoop on Raspberry Pi Cluster
+      title: Hadoop on Raspberry Pi Cluster
       url: https://github.com/cloudmesh-community/sp20-516-252
