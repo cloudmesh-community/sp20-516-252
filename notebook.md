@@ -1,11 +1,13 @@
 # Notebook Jessica Zhu sp20-516-252
 
+## Week 03/16/2020 - 03/23/2020
+
 ## Week 03/09/2020 - 03/15/2020
 
  - Tried to burn images to 9 SD cards for 48-node-Pi cluster (SD card writer
   issue)
  - Watched lecture videos & finished exercises
- 
+ - Benchmarked Raspberry Pi Imager and Etcher on MacOS
 
 ## Week 03/02/2020 - 03/08/2020
 
@@ -14,6 +16,14 @@
    address checking on switches)
   - Watched Lecture videos
   - set up MESH training
+
+## Week 02/24/2020 - 03/01/2020
+
+## Week 02/17/2020 - 02/23/2020
+
+## Week 02/10/2020 - 02/16/2020
+
+## Week 02/03/2020 - 02/09/2020
 
 ## Week 01/27/2020 - 02/02/2020
 
