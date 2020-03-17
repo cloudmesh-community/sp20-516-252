@@ -66,7 +66,9 @@ Watson Machine Learning is built upon Kubernetes and Docker components
 
 - Programming Interfaces:
 
-Python client library, Command Line Interface and REST API.
+**Python client library**
+**Command Line Interface**
+**REST API**
 
 - Training Infrastructure 
 
@@ -80,15 +82,15 @@ Python client library, Command Line Interface and REST API.
 
 - Deployment Infrastructure
 
-Trained models: they can be deployed for batch processing, as a web service
+**Trained models** can be deployed for batch processing, as a web service
  or with streaming data;
  
-Python functions: they can be deployed to simplify AI solutions.
+**Python functions** can be deployed to simplify AI solutions.
 
 ## Getting Started
 
-Here we are giving you a brief demonstration of Waston Machine Learning to
- show how simple it is to train and deploy a model.
+Here we are giving you a brief demonstration of Watson Machine Learning
+ features to show how simple it is to train and deploy a model.
  
 - Create an IBM Cloud account (free) and sign in
 
@@ -108,16 +110,15 @@ You will be directed to the `Dashboard` page. Click `Services` on `Resource
 
 Now you should be directed to the Watson Machine Learning page like below:
 ![Fig 5 - Watson Machine Learning Page [@machine-learning-page-2020-sp20-516
--252
-]](image/machine-learning-page.png){#fig2:sp20-516-252-machine-learning-page
-}
+-252]](image/machine-learning-page.png){#fig:sp20-516-252-machine-learning-page}
 
 We are using `Production Line Prediction` as sample data. Go to the bottom
- of the page to the `Sample Applications` part, and click `+` sign on `Product
-  Line Prediction` section. 
+ of the page to the `Sample Applications` section, and click `+` sign on
+  `Product Line Prediction` section. 
   
-Instructions on the following steps can be found [here](https://developer.ibm.com/technologies/data-science/tutorials/watson-studio-auto-ai/).
-Waston studio allows you to train, build and deploy a model in just a minute.
+Instructions on the following steps to build, train and deploy a model can be
+ found [here](https://developer.ibm.com/technologies/data-science/tutorials/watson-studio-auto-ai/).
+Watson studio allows you to complete the whole process in just a minute.
 
 ### Deployment 
 
@@ -126,26 +127,24 @@ There are four supported deployment methods:
 * Watson Studio project
 
 Simply use the *Deployments* tab of the project in Watson Studio. Test data
- can be sumbitted either in a typed form, JSON-formatted code, or as a data
-  sources. It is very simple that you don't have to write a line of code. [sp20-516-252
-    -model-deployment]
+ can be submitted either in a typed form, JSON-formatted code, or as a data
+  source. It is very simple that you don't even have to write a line of code
+  . [sp20-516-252-model-deployment]
 
 * Python Client 
 
-Models can be deployed using the Python client if you are working on a local
+Models can be deployed using Python client if you are working on a local
  Python development environment or a Python notebook. 
  
-In fact, you can train your model by submitting a training job to IBM Cloud
- infrastructure by writing a few lines of code on your local Python notebook
- . During the training process, you can run command to get updates on its
+You can train a model by submitting a training job to IBM Cloud
+ infrastructure with a few lines of code on your local Python notebook. During training, you can run commands to get updates on its
   training progress. 
   
   After training, you can store the model in Watson Machine Learning
-   repository. Then you can deploy the model by applying the test data to the
-    stored model. A prediction and actual result will be returned. [sp20-516-252
-    -model-deployment]
+   repository. Then you can deploy the model by applying test data to the
+    stored model. A prediction and the actual result will be returned. [sp20-516-252-model-deployment]
     
-An full example and code that demonstrate the use of Python client can be
+An example and code that demonstrate the use of Python client can be
  found [here](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-python-mnist-tutorial.html).  
 
 * REST API
@@ -168,7 +167,7 @@ CLI allows you to fully automate training and deployment process on your
  local machine. Or you can use it if you simply prefer CLI. 
  
  You need to install Watson Machine Learning CLI on your computer. After
-  training and storing the model in your Watson Machine Learning repository
+  training and storing a model in your Watson Machine Learning repository
   , you can deploy model using command lines:
   
   ```
@@ -182,7 +181,7 @@ An example and sample code using CLI can be found [here](https://dataplatform.cl
 
 ## Pricing
 
-For United States, there are three pricing plans: Lite
+In terms of the region of the United States, there are three pricing plans: Lite
 , Standard and Professional.
  
  - Lite - Free of Charge
@@ -200,16 +199,16 @@ $1,000 USD/instance, $0.40 USD/1000 predictions, $0.40 USD/capacity unit-hour
 
 The prices listed are valid as of March 2020. This list provides a general
 guide for each plan. Capacity unit-hour also depends upon CPU and RAM being
- used, more details of which can be found on [IBM pricing website](https://cloud.ibm.com/catalog/services/machine-learning).
+ used, more details of which can be found on [IBM pricing website](https
+ ://cloud.ibm.com/catalog/services/machine-learning). Lite is a free plan
+  that is a good starter for new users to test out Watson
+  Machine Learning Services. [sp20-516-252-pricing1]
   
   This [tutorial page](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/track-runtime-usage-wml.html?audience=wdp) 
   also provides more details regarding pricing. It also explains how to track
    runtime usage on your account.
-
- Lite is a free plan that is a good starter for new users to test out Watson
-  Machine Learning Services. [sp20-516-252-pricing1]
   
-When a model is deployed, a *score* refers to one prediction made by a
+After a model is deployed, a *score* refers to one prediction made by a
  trained model. Notice that you will be billed for any *event* that involves
   the use of the Cloud Service. So you will be billed for a prediction, an
    *scoring event*. [sp20-516-252-pricing2]
