@@ -3,72 +3,65 @@
 
 ## Introduction 
 
-IBM Watson Machine Learning has features for training and deploying machine
- learning models and neural networks using users' own data. The models can be
-  deployed in applications. 
-
-Watson Machine Learning offers a range of tools for model building, training
- and deployment. Tools range from completely automating training process for
-  quick prototyping to total control on specifications of a model.
+IBM Watson Machine Learning is a set of tools to build, train and deploy machine
+ learning models and neural networks using users' own data. These tools range
+  from completely automating training process for quick prototyping to total
+   control on specifications of a model. These models can be deployed in
+    applications or at scale.
   
   A typical process for machine learning model is shown below:
-![Fig 1 - Process for Machine Learning Model [#fig1:sp20-516-252-machine-learning-process
-]](image/ml_process.png){#fig1:sp20-516-252-machine-learning-process} Fig. 1
- Typical Process for Machine Learning Model
+![Fig 1 - Process for Machine Learning Model [@sp20-516-252-machine-learning-process]](image/ml_process.png){#fig:sp20-516-252-machine-learning-process}
 
 ## Features
 
-### Watson Studio tools
+### Watson Studio Tools
 
-IBM Watson Studio offers a set of tools for model design, training, deployment and management.
+IBM Watson Studio offers a set of tools for model design, training
+, deployment and management. We introduce a few of them here:
 
 - AutoAI experiments
  
- It allows to select the best performing pipeline as a
- machine learning model. Several automated steps include data preprocessing
- , best estimator selection and the generation of model candidate pipelines
+ It allows users to select the best performing pipeline as a machine
+  learning model from a set of automatically generated pipeline options. Several steps are automated, which includes data pre
+ -processing, best estimator selection and the generation of model candidate pipelines
   for review and compare.
 
-![Fig 2 - AutoAI Features [@AutoAI-2020-sp20-516
--252
-]](image/autoai_overview.png){#fig2:sp20-516-252-auto-ai-features
-} Fig. 2 AutoAI Experiment Features
+![Fig 2 - AutoAI Features [@AutoAI-2020-sp20-516-252]](image/autoai_overview.png){#fig:sp20-516-252-auto-ai-features}
 
 - Spark MLlib modeler
 
-Its flow editor can create a machine learning flow, which is a graphical
- representation of a data model. It presents a graphical view of model while
-  building it by combining nodes that represent algorithm nodes. These nodes
-   represent a transformation or processing step on data.
+Its flow editor allows users to create a machine learning flow, which is a
+ graphical representation of a data model. A machine learning flow presents a
+  graphical view of a model during the building process by combining nodes that
+   represent algorithm nodes. Each node represents a transformation or
+    processing step on data.
 
 - SPSS modeler
 
-It shows a graphical view of the model while it is being built by combining
- nodes representing objects or actions. It is designed based upon established
-  SPSS Modeler client software and the industry0strandard CRISP-DM model.
+It can present a graphical view of a model while it is being built by
+ combining nodes representing objects or actions. This modeler is designed based
+  upon established SPSS Modeler client software and the industry standard CRISP
+  -DM model.
 
 - Neural network modeler
 
-Its flow editor helps to create a deep learning flow, which is a graphical
- representation of a neural network design. It can be used to design and run
-  experiments.   
+Its flow editor helps create a deep learning flow, which is a graphical
+ representation of a neural network design. This modeler can be used to design
+  and run experiments.   
   
-![Fig 4 - Neural Workflow [@Neural Workflow-2020-sp20-516
--252
-]](image/neural-workflow.png){#fig2:sp20-516-252-neural-workflow
-} Fig. 3 A Sample Neural Network Design
-
+![Fig 3 - Neural Network Workflow [@Neural Workflow-2020-sp20-516
+-252]](image/neural-workflow.png){#fig:sp20-516-252-neural-workflow}
 
 - Experiment Builder
 
 In the case that thousands of models need to be trained to identify the
  right combination of data and hyperparameters, the experiment builder
-  simplify the model training process along with an auto-allocated GPU
+  simplifies the model training process along with an auto-allocated GPU
    compute containers. [sp20-516-252-watson-ml-overview]
    
-### architecture and services
+### Architecture and Services
 
-Watson Machine Learning is built based upon Kubernetes and Docker components
+Watson Machine Learning is built upon Kubernetes and Docker components
 . It supports the following infrastructure and services:
 
 - Programming Interfaces:
@@ -77,10 +70,13 @@ Python client library, Command Line Interface and REST API.
 
 - Training Infrastructure 
 
-Distributed training that allows to run training jobs among multiple servers
-Common frameworks
-GPU
-Hyperparameter optimization 
+**Distributed training** that can have training jobs run among multiple servers
+
+**Common frameworks** allows users to work with their preferred frameworks
+
+**GPU**
+
+**Hyperparameter optimization** 
 
 - Deployment Infrastructure
 
@@ -98,10 +94,10 @@ Here we are giving you a brief demonstration of Waston Machine Learning to
 
 <https://cloud.ibm.com/login>
 
-![Fig 3 - Sign In Page [@sign-in-page-2020-sp20-516
+![Fig 4 - Sign In Page [@sign-in-page-2020-sp20-516
 -252
-]](image/sign_in_page.png){#fig2:sp20-516-252-sign-in-page
-} Fig. 3 Sign In Page
+]](image/sign_in_page.png){#fig:sp20-516-252-sign-in-page
+}
 
 - Access to Watson Machine Learning
 
@@ -111,10 +107,10 @@ You will be directed to the `Dashboard` page. Click `Services` on `Resource
    Learning-lb`.
 
 Now you should be directed to the Watson Machine Learning page like below:
-![Fig 4 - Watson Machine Learning Page [@machine-learning-page-2020-sp20-516
+![Fig 5 - Watson Machine Learning Page [@machine-learning-page-2020-sp20-516
 -252
 ]](image/machine-learning-page.png){#fig2:sp20-516-252-machine-learning-page
-} Fig. 3 Watson Machine Learning Page
+}
 
 We are using `Production Line Prediction` as sample data. Go to the bottom
  of the page to the `Sample Applications` part, and click `+` sign on `Product
