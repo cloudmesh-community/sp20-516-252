@@ -216,5 +216,5 @@ After a model is deployed, a *score* refers to one prediction made by a
 ## Further Readings
 
 This [playlist](https://www.youtube.com/watch?v=DBRGlAHdj48&list=PLzpeuWUENMK2PYtasCaKK4bZjaYzhW23L&index=1) has videos giving concrete examples on how to build, train and
- deploy different models using Watson Machine Learning. It is a good source
+ deploy different models using Watson Machine Learning. It is a good resource
   for interested users. 
