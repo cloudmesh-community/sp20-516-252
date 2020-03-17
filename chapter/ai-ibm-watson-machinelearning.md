@@ -74,7 +74,7 @@ Python client library, Command Line Interface and REST API.
 
 **Common frameworks** allows users to work with their preferred frameworks
 
-**GPU**
+**GPU** 
 
 **Hyperparameter optimization** 
 
