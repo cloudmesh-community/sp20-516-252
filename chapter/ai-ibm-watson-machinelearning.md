@@ -1,5 +1,4 @@
-# IBM Watson Machine Learning 
-## sp20-516-252 Jessica Zhu
+# IBM Watson Machine Learning sp20-516-252 Jessica Zhu
 
 ## Introduction 
 
@@ -10,7 +9,7 @@ IBM Watson Machine Learning is a set of tools to build, train and deploy machine
     applications or at scale.
   
   A typical process for machine learning model is shown below:
-![Fig 1 - Process for Machine Learning Model [@sp20-516-252-machine-learning-process]](image/ml_process.png){#fig:sp20-516-252-machine-learning-process}
+![Process for Machine Learning Model](image/ml_process.png){#fig:sp20-516-252-machine-learning-process} [@sp20-516-252-machine-learning-process]
 
 ## Features
 
@@ -26,7 +25,7 @@ IBM Watson Studio offers a set of tools for model design, training
  -processing, best estimator selection and the generation of model candidate pipelines
   for review and compare.
 
-![Fig 2 - AutoAI Features [@AutoAI-2020-sp20-516-252]](image/autoai_overview.png){#fig:sp20-516-252-auto-ai-features}
+![AutoAI Features](image/autoai_overview.png){#fig:sp20-516-252-auto-ai-features}[@AutoAI-2020-sp20-516-252]
 
 - Spark MLlib modeler
 
@@ -170,10 +169,10 @@ CLI allows you to fully automate training and deployment process on your
   training and storing a model in your Watson Machine Learning repository
   , you can deploy model using command lines:
   
-  ```
-bx ml deploy MODEL-ID DEPLOYMENT-NAME<full path to test data>
-bx ml deploy -b MODEL-ID DEVELOPMENT-NAME<path to batch json>
--b - Enable batch deployment mode
+```bash
+$ bx ml deploy MODEL-ID DEPLOYMENT-NAME<full path to test data>
+$ bx ml deploy -b MODEL-ID DEVELOPMENT-NAME<path to batch json>
+  -b - Enable batch deployment mode
 ```
 [sp20-516-252-model-deployment]
 
