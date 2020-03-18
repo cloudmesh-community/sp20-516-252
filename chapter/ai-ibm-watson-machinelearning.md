@@ -78,7 +78,7 @@ Watson Machine Learning is built upon Kubernetes and Docker components
 
 **GPU** 
 
-**Hyperparameter optimization** 
+**Hyper-parameter optimization** 
 
 - Deployment Infrastructure
 
@@ -157,7 +157,7 @@ This method offers the ultimate flexibility. A model can be deployed from
    To achieve this, you need the endpoint URL from the *Implementation* tab
     of the model's deployment page. The page also provides sample code to
      help structure the payload for the deployment. You need to manually
-      input a set of parameters to the payload. [sp20-516-252-model-deployment]
+      input a set of parameters to the payload[@sp20-516-252-model-deployment]. 
       
 A sample code using REST API can be found [here](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-deploy_new.html?linkInPage=true#rest).  
 
@@ -175,7 +175,7 @@ $ bx ml deploy MODEL-ID DEPLOYMENT-NAME<full path to test data>
 $ bx ml deploy -b MODEL-ID DEVELOPMENT-NAME<path to batch json>
   -b - Enable batch deployment mode
 ```
-[sp20-516-252-model-deployment]
+[@sp20-516-252-model-deployment]
 
 An example and sample code using CLI can be found [here](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-deploy_new.html?linkInPage=true#rest).  
 
@@ -202,7 +202,7 @@ guide for each plan. Capacity unit-hour also depends upon CPU and RAM being
  used, more details of which can be found on [IBM pricing website](https
  ://cloud.ibm.com/catalog/services/machine-learning). Lite is a free plan
   that is a good starter for new users to test out Watson
-  Machine Learning Services. [sp20-516-252-pricing1]
+  Machine Learning Services[@sp20-516-252-pricing1].
   
   This [tutorial page](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/track-runtime-usage-wml.html?audience=wdp) 
   also provides more details regarding pricing. It also explains how to track
@@ -211,7 +211,7 @@ guide for each plan. Capacity unit-hour also depends upon CPU and RAM being
 After a model is deployed, a *score* refers to one prediction made by a
  trained model. Notice that you will be billed for any *event* that involves
   the use of the Cloud Service. So you will be billed for a prediction, an
-   *scoring event*. [sp20-516-252-pricing2]
+   *scoring event*[@sp20-516-252-pricing2].
    
 ## Further Readings
 
