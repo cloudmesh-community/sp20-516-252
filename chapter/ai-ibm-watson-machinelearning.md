@@ -9,7 +9,7 @@ IBM Watson Machine Learning is a set of tools to build, train and deploy machine
     applications or at scale.
   
   A typical process for machine learning model is shown below:
-![Process for Machine Learning Model](image/ml_process.png){#fig:sp20-516-252-machine-learning-process} [@sp20-516-252-machine-learning-process]
+![Process for Machine Learning Model[@sp20-516-252-machine-learning-process]](image/ml_process.png){#fig:sp20-516-252-machine-learning-process} 
 
 ## Features
 
@@ -25,7 +25,7 @@ IBM Watson Studio offers a set of tools for model design, training
  -processing, best estimator selection and the generation of model candidate pipelines
   for review and compare.
 
-![AutoAI Features](image/autoai_overview.png){#fig:sp20-516-252-auto-ai-features}[@AutoAI-2020-sp20-516-252]
+![AutoAI Features[@AutoAI-2020-sp20-516-252]](image/autoai_overview.png){#fig:sp20-516-252-auto-ai-features}
 
 - Spark MLlib modeler
 
