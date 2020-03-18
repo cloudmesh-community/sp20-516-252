@@ -25,7 +25,7 @@ IBM Watson Studio offers a set of tools for model design, training
  -processing, best estimator selection and the generation of model candidate pipelines
   for review and compare.
 
-![AutoAI Features[@AutoAI-2020-sp20-516-252]](image/autoai_overview.png){#fig
+![AutoAI Features[@sp20-516-252-auto-ai-features]](image/autoai_overview.png){#fig
 :sp20-516-252-auto-ai-features} [@sp20-516-252-machine-learning-process]
 
 - Spark MLlib modeler
@@ -49,8 +49,7 @@ Its flow editor helps create a deep learning flow, which is a graphical
  representation of a neural network design. This modeler can be used to design
   and run experiments.   
   
-![Fig 3 - Neural Network Workflow [@Neural Workflow-2020-sp20-516
--252]](image/neural-workflow.png){#fig:sp20-516-252-neural-workflow}
+![Neural Network Workflow[@sp20-516-252-neural-workflow]](image/neural-workflow.png){#fig:sp20-516-252-neural-workflow}
 
 - Experiment Builder
 
@@ -96,10 +95,7 @@ Here we are giving you a brief demonstration of Watson Machine Learning
 
 <https://cloud.ibm.com/login>
 
-![Fig 4 - Sign In Page [@sign-in-page-2020-sp20-516
--252
-]](image/sign_in_page.png){#fig:sp20-516-252-sign-in-page
-}
+![Sign In Page [@sp20-516-252-sign-in-page]](image/sign_in_page.png){#fig:sp20-516-252-sign-in-page}
 
 - Access to Watson Machine Learning
 
@@ -109,8 +105,7 @@ You will be directed to the `Dashboard` page. Click `Services` on `Resource
    Learning-lb`.
 
 Now you should be directed to the Watson Machine Learning page like below:
-![Fig 5 - Watson Machine Learning Page [@machine-learning-page-2020-sp20-516
--252]](image/machine-learning-page.png){#fig:sp20-516-252-machine-learning-page}
+![Watson Machine Learning Page [@sp20-516-252-machine-learning-page]](image/machine-learning-page.png){#fig:sp20-516-252-machine-learning-page}
 
 We are using `Production Line Prediction` as sample data. Go to the bottom
  of the page to the `Sample Applications` section, and click `+` sign on
