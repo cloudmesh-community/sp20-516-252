@@ -57,7 +57,7 @@ Its flow editor helps create a deep learning flow, which is a graphical
 In the case that thousands of models need to be trained to identify the
  right combination of data and hyperparameters, the experiment builder
   simplifies the model training process along with an auto-allocated GPU
-   compute containers. [sp20-516-252-watson-ml-overview]
+   compute containers[@sp20-516-252-watson-ml-overview].
    
 ### Architecture and Services
 
@@ -129,7 +129,7 @@ There are four supported deployment methods:
 Simply use the *Deployments* tab of the project in Watson Studio. Test data
  can be submitted either in a typed form, JSON-formatted code, or as a data
   source. It is very simple that you don't even have to write a line of code
-  . [sp20-516-252-model-deployment]
+  [@sp20-516-252-model-deployment].
 
 * Python Client 
 
@@ -142,7 +142,7 @@ You can train a model by submitting a training job to IBM Cloud
   
   After training, you can store the model in Watson Machine Learning
    repository. Then you can deploy the model by applying test data to the
-    stored model. A prediction and the actual result will be returned. [sp20-516-252-model-deployment]
+    stored model. A prediction and the actual result will be returned[@sp20-516-252-model-deployment].
     
 An example and code that demonstrate the use of Python client can be
  found [here](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-python-mnist-tutorial.html).  
