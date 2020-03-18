@@ -25,7 +25,8 @@ IBM Watson Studio offers a set of tools for model design, training
  -processing, best estimator selection and the generation of model candidate pipelines
   for review and compare.
 
-![AutoAI Features[@AutoAI-2020-sp20-516-252]](image/autoai_overview.png){#fig:sp20-516-252-auto-ai-features}
+![AutoAI Features[@AutoAI-2020-sp20-516-252]](image/autoai_overview.png){#fig
+:sp20-516-252-auto-ai-features} [@sp20-516-252-machine-learning-process]
 
 - Spark MLlib modeler
 
