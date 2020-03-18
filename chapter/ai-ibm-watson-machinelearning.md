@@ -9,6 +9,7 @@ IBM Watson Machine Learning is a set of tools to build, train and deploy machine
     applications or at scale.
   
   A typical process for machine learning model is shown below:
+  
 ![Process for Machine Learning Model[@sp20-516-252-machine-learning-process]](image/ml_process.png){#fig:sp20-516-252-machine-learning-process} 
 
 ## Features
@@ -104,7 +105,8 @@ You will be directed to the `Dashboard` page. Click `Services` on `Resource
    Learning-lb`.
 
 Now you should be directed to the Watson Machine Learning page like below:
-![Watson Machine Learning Page [@sp20-516-252-machine-learning-page]](image/machine-learning-page.png){#fig:sp20-516-252-machine-learning-page}
+
+![Watson Machine Learning Page[@sp20-516-252-machine-learning-page]](image/machine-learning-page.png){#fig:sp20-516-252-machine-learning-page}
 
 We are using `Production Line Prediction` as sample data. Go to the bottom
  of the page to the `Sample Applications` section, and click `+` sign on
@@ -162,14 +164,13 @@ CLI allows you to fully automate training and deployment process on your
  
  You need to install Watson Machine Learning CLI on your computer. After
   training and storing a model in your Watson Machine Learning repository
-  , you can deploy model using command lines:
+  , you can deploy model using command lines[@sp20-516-252-model-deployment]:
   
 ```bash
 $ bx ml deploy MODEL-ID DEPLOYMENT-NAME<full path to test data>
 $ bx ml deploy -b MODEL-ID DEVELOPMENT-NAME<path to batch json>
   -b - Enable batch deployment mode
 ```
-[@sp20-516-252-model-deployment]
 
 An example and sample code using CLI can be found [here](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-deploy_new.html?linkInPage=true#rest).  
 
