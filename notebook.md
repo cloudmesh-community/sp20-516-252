@@ -1,6 +1,17 @@
 # Notebook Jessica Zhu sp20-516-252
 
-## Week 03/16/2020 - 03/23/2020
+## Week 03/22/2020 - 03/28/2020
+
+ - chapter peer review 
+ - work on exercises
+ - work on project
+
+## Week 03/16/2020 - 03/22/2020
+
+ - Clarified next steps on project with prof and peers
+ - Read lectures and exercises
+ - Figured out how to use bookmanager and built book
+ - Finished chapter review
 
 ## Week 03/09/2020 - 03/15/2020
 
