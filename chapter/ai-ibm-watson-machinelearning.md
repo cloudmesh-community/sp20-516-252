@@ -16,13 +16,13 @@ IBM Watson Machine Learning is a set of tools to build, train and deploy machine
 
 ### Watson Studio Tools
 
-IBM Watson Studio offers a set of tools for model design, training, deployment and management. We introduce a few of them here:
+IBM Watson Studio offers a set of tools for model design, training, deployment and management. We are introducing a few of them:
 
 - AutoAI experiments
  
     AutoAI experiments allow users to select the best performing pipeline as a machine
   learning model from a set of automatically generated pipeline options. Several steps are automated, which includes data preprocessing, best estimator selection and the generation of model candidate pipelines
-  for review and compare.
+  for review and comparision.
 
 ![AutoAI Features[@sp20-516-252-auto-ai-features]](image/autoai_overview.png){#fig:sp20-516-252-auto-ai-features}
 
@@ -39,7 +39,8 @@ IBM Watson Studio offers a set of tools for model design, training, deployment a
 
     It can present a graphical view of a model while it is being built by
  combining nodes representing objects or actions. This modeler is designed based
-  upon established SPSS Modeler client software and the industry standard CRISP-DM model.
+  upon established SPSS Modeler client software and the industry-standard
+   CRISP-DM model.
 
 - Neural network modeler
 
@@ -92,7 +93,7 @@ Here we are giving you a brief demonstration of Watson Machine Learning
  
 - Create an IBM Cloud account (free) and sign in
 
-<https://cloud.ibm.com/login>
+    <https://cloud.ibm.com/login>
 
 ![Sign In Page [@sp20-516-252-sign-in-page]](image/sign_in_page.png){#fig:sp20-516-252-sign-in-page}
 
@@ -107,8 +108,8 @@ Here we are giving you a brief demonstration of Watson Machine Learning
 
 ![Watson Machine Learning Page[@sp20-516-252-machine-learning-page]](image/machine-learning-page.png){#fig:sp20-516-252-machine-learning-page}
   
- We are using `Production Line Prediction` as sample data. Go to the  
-   bottom of the page to the `Sample Applications` section, and click
+ We are using `Production Line Prediction` as sample data. Go to the bottom
+  of the page to the `Sample Applications` section, and click
  `+` sign on the `Product Line Prediction` section. 
   
  Instructions on the following steps to build, train and deploy a model can
@@ -120,7 +121,7 @@ There are four supported deployment methods:
 
 * Watson Studio project
 
-    Simply use the *Deployments* tab of the project in Watson Studio. Test data
+    Use the *Deployments* tab of the project in Watson Studio. Test data
  can be submitted either in a typed form, JSON-formatted code, or as a data
   source. It is very simple that you don't even have to write a line of code
   [@sp20-516-252-model-deployment].
@@ -134,7 +135,7 @@ There are four supported deployment methods:
  infrastructure with a few lines of code on your local Python notebook. During training, you can run commands to get updates on its
   training progress. 
   
-  After training, you can store the model in Watson Machine Learning
+  After training, you can store the model in the Watson Machine Learning
    repository. Then you can deploy the model by applying test data to the
     stored model. A prediction and the actual result will be returned[@sp20-516-252-model-deployment].
     
@@ -161,7 +162,8 @@ There are four supported deployment methods:
      your local machine. Or you can use it if you simply prefer CLI. 
  
     You need to install Watson Machine Learning CLI on your computer. After
-  training and storing a model in your Watson Machine Learning repository, you can deploy model using command lines[@sp20-516-252-model-deployment]:
+  training and storing a model in your Watson Machine Learning repository, you can deploy the model using command lines[@sp20-516-252-model
+  -deployment]:
   
     ```bash
     $ bx ml deploy MODEL-ID DEPLOYMENT-NAME<full path to test data>
@@ -190,7 +192,7 @@ In terms of the region of the United States, there are three pricing plans: Lite
 
     The prices listed are valid as of March 2020. This list provides a general
 guide for each plan. Capacity unit-hour also depends upon CPU and RAM being
- used, more details of which can be found on [IBM pricing website](https://cloud.ibm.com/catalog/services/machine-learning). Lite is a free plan
+ used, more details of which can be found on the [IBM pricing website](https://cloud.ibm.com/catalog/services/machine-learning). Lite is a free plan
   that is a good starter for new users to test out Watson
   Machine Learning Services[@sp20-516-252-pricing1].
   
