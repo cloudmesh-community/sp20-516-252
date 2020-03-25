@@ -121,7 +121,7 @@ There are four supported deployment methods:
 
 * Watson Studio project
 
-    Use the *Deployments* tab of the project in Watson Studio. Test data
+    Use the `Deployments` tab of the project in Watson Studio. Test data
  can be submitted either in a typed form, JSON-formatted code, or as a data
   source. It is very simple that you don't even have to write a line of code
   [@sp20-516-252-model-deployment].
@@ -190,17 +190,17 @@ In terms of the region of the United States, there are three pricing plans: Lite
 
     $1,000 USD/instance, $0.40 USD/1000 predictions, $0.40 USD/capacity unit-hour
 
-    The prices listed are valid as of March 2020. This list provides a general
+The prices listed are valid as of March 2020. This list provides a general
 guide for each plan. Capacity unit-hour also depends upon CPU and RAM being
  used, more details of which can be found on the [IBM pricing website](https://cloud.ibm.com/catalog/services/machine-learning). Lite is a free plan
   that is a good starter for new users to test out Watson
   Machine Learning Services[@sp20-516-252-pricing1].
   
-  This [tutorial page](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/track-runtime-usage-wml.html?audience=wdp) 
+This [tutorial page](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/track-runtime-usage-wml.html?audience=wdp) 
   also provides more details regarding pricing. It also explains how to track
    runtime usage on your account.
   
-    After a model is deployed, a *score* refers to one prediction made by a
+After a model is deployed, a *score* refers to one prediction made by a
  trained model. Notice that you will be billed for any *event* that involves
   the use of the Cloud Service. So you will be billed for a prediction, a
    *scoring event*[@sp20-516-252-pricing2].
