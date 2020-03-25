@@ -151,7 +151,7 @@ There are four supported deployment methods:
    To achieve this, you need the endpoint URL from the *Implementation* tab
     of the model's deployment page. The page also provides sample code to
      help structure the payload for the deployment. You need to manually
-      input a set of parameters to the payload[@sp20-516-252-model-deployment]. 
+      input a set of parameters to the payload[@sp20-516-252-model-deployment].
       
     A sample code using REST API can be found [here](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-deploy_new.html?linkInPage=true#rest).  
 
