@@ -63,11 +63,11 @@ Watson Machine Learning is built upon Kubernetes and Docker components. It suppo
 
 - Programming Interfaces:
 
-    **Python client library**
+    *Python client library*
 
-    **Command Line Interface**
+    *Command Line Interface*
 
-    **REST API**
+    *REST API*
 
 - Training Infrastructure 
 
