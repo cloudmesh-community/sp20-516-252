@@ -71,20 +71,20 @@ Watson Machine Learning is built upon Kubernetes and Docker components. It suppo
 
 - Training Infrastructure 
 
-    **Distributed training** that can have training jobs run among multiple servers
+    *Distributed training* that can have training jobs run among multiple servers
 
-    **Common frameworks** allows users to work with their preferred frameworks
+    *Common frameworks* allows users to work with their preferred frameworks
 
-    **GPU** 
+    *GPU* 
 
-    **Hyper-parameter optimization** 
+    *Hyper-parameter optimization* 
 
 - Deployment Infrastructure
 
-    **Trained models** can be deployed for batch processing, as a web service
- or with streaming data;
+    *Trained models* can be deployed for batch processing, as a web service
+ or with streaming data
  
-    **Python functions** can be deployed to simplify AI solutions.
+    *Python functions* can be deployed to simplify AI solutions.
 
 ## Getting Started
 
