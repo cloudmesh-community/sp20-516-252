@@ -110,7 +110,7 @@ Here we are giving you a brief demonstration of Watson Machine Learning
   
  We are using `Production Line Prediction` as sample data. Go to the bottom
   of the page to the `Sample Applications` section, and click
- `+` sign on the `Product Line Prediction` section. 
+ `+` sign on the `Product Line Prediction` section.
   
  Instructions on the following steps to build, train and deploy a model can
   be found [here](https://developer.ibm.com/technologies/data-science/tutorials/watson-studio-auto-ai/). Watson studio allows you to complete the whole process in just a minute.
