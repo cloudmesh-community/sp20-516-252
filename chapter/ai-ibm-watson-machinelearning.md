@@ -162,8 +162,7 @@ There are four supported deployment methods:
      your local machine. Or you can use it if you simply prefer CLI. 
  
     You need to install Watson Machine Learning CLI on your computer. After
-  training and storing a model in your Watson Machine Learning repository, you can deploy the model using command lines[@sp20-516-252-model
-  -deployment]:
+  training and storing a model in your Watson Machine Learning repository, you can deploy the model using command lines[@sp20-516-252-model-deployment]:
   
     ```bash
     $ bx ml deploy MODEL-ID DEPLOYMENT-NAME<full path to test data>
