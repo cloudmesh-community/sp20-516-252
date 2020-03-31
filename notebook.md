@@ -1,10 +1,12 @@
 # Notebook Jessica Zhu sp20-516-252
 
-## Week 03/22/2020 - 03/28/2020
+## Week 03/30/2020 - 04/05/2020
 
- - chapter peer review 
- - work on exercises
- - work on project
+ - Successfully set up Pi Cluster
+
+## Week 03/23/2020 - 03/29/2020
+
+ - finished chapter peer review
 
 ## Week 03/16/2020 - 03/22/2020
 
