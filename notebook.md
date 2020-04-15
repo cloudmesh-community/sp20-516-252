@@ -1,7 +1,15 @@
 # Notebook Jessica Zhu sp20-516-252
 
+## Week 04/13/2020 - 04/19/2020
+
+- Re-burned CD cards, debugged
+- Fix connections to workers
+
+## Week 04/06/2020 - 04/12/2020
+
 ## Week 03/30/2020 - 04/05/2020
 
+ - install Hadoop on Pi
  - Successfully set up Pi Cluster
 
 ## Week 03/23/2020 - 03/29/2020
