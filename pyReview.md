@@ -16,6 +16,17 @@ $ vi id_rsa.pub # view public key
 $ $ ~/.ssh/id_rsa.pub # path to public key (Permission denied)
 ```
 
+### remove a known host key
+
+`ssh-keygen -R hostname`
+
+To add ssh key:
+
+```
+eval `ssh-agent -s`
+ssh-add
+```
+
 ## Week 3 Lab Activities 
 
 ### Notes
