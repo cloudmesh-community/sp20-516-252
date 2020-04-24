@@ -2,8 +2,8 @@
 
 ## Week 04/13/2020 - 04/19/2020
 
-# Installing Hadoop on Pi, issues with static IP
-# re-install cms and burn cards
+ - Installing Hadoop on Pi, issues with static IP
+ - re-install cms and burn cards
 
 ## Week 04/13/2020 - 04/19/2020
 
