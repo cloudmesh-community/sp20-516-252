@@ -4,7 +4,7 @@
 sudo mkdir /opt/java
 sudo mv ~/openjdkpkg.tgz /opt/java/
 cd /opt/java
-sudo tar -zxf openjdkpkg.tar -C /opt/java
+sudo tar -zxf openjdkpkg.tgz -C /opt/java
 
 # check if files are there
 # ls /opt/java
