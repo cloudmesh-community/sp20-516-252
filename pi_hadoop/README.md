@@ -1,5 +1,13 @@
 # Hadoop Clusters with Raspberry Pi Jessica Zhu sp20-516-252
 
+Reference for setup:
+https://github.com/cloudmesh/cloudmesh-pi-burn
+https://github.com/cloudmesh/cloudmesh-pi-cluster/blob/master/cloudmesh/bridge/README.md
+
+For the numpy issue:
+https://github.com/numpy/numpy/issues/14348
+
+
 For reference, master and workers are burnt using `cloudmesh-pi-cluster`.
 master: pi@red
 workers: red[001 - 002]
@@ -14,9 +22,15 @@ Hadoop requires Java. Raspbian Desktop doesn't come with Java installed
 
 ### Install Java on master node
 
-run file in `bin/setup-master`
 
-Check if the java installation is successful
+
+```
+git clone https://github.com/cloudmesh-community/sp20-516-252.git
+cd pi_hadoop/bin
+sh setup-master
+```
+
+Check if the java installation is successful by running
 `
 $ java -version
 `
