@@ -3,8 +3,7 @@
 # create java directory
 sudo mkdir /opt/jdk
 sudo mv ~/openjdkpkg.tgz /opt/jdk/
-cd /opt/jdk
-sudo tar -zxf openjdkpkg.tgz -C /opt/jdk
+sudo tar -zxf /opt/jdk/openjdkpkg.tgz -C /opt/jdk
 
 # check if files are there
 ls /opt/jdk

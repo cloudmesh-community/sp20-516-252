@@ -9,11 +9,12 @@ https://github.com/numpy/numpy/issues/14348
 
 
 For reference, master and workers are burnt using `cloudmesh-pi-cluster`.
-master: pi@red
-workers: red[001 - 002]
+    master: pi@red
+    workers: red[001 - 002]
 
 and bridge has been properly created.
 
+You should make sure that workers can be logged in without password
 
 ## install Java on master and workers
 
@@ -22,31 +23,84 @@ Hadoop requires Java. Raspbian Desktop doesn't come with Java installed
 
 ### Install Java on master node
 
-
-
 ```
+cd ~
 git clone https://github.com/cloudmesh-community/sp20-516-252.git
-cd pi_hadoop/bin
-sh setup-master
+cd sp20-516-252/pi_hadoop/bin
+sh setup-master.sh
 ```
+If asked: " Do you want to continue?[Y/n]" Enter, Y.
+(Maybe try this to avoid type "Y"
+`echo "Y" | sh setup-master.sh`
+)
 
 Check if the java installation is successful by running
 `
 $ java -version
 `
 
+It should expect return
+```
+openjdk version "1.8.0_212"
+OpenJDK Runtime Environment (build 1.8.0_212-8u212-b01-1+rpi1-b01)
+OpenJDK Client VM (build 25.212-b01, mixed mode)
+```
+
 ## Install Java on worker nodes
 
 Since workers don't have access to network, java can be installed by master
  passing the installation package to workers.
  
- run file in `bin/master-to-worker`
+ run command 
+  ```
+sh master-to-worker.sh
+```
 
 Now that each worker has the right java zip package, we are gonna upzip and
  install java on each worker using just one line from master:
  
- This py file is in cloudmesh-common
- `python JobMultiHostScript.py ~/sp20-516-252/[i_hadoop/bin/worker-installation.sh red002`
+ This py file is in cloudmesh-common (this JobMultiHostScript.py needs to be
+  motified till the source code is fixed)
+ ```
+cd ~/cm/cloudmesh-common/cloudmesh/common
+sudo nano JobMultiHostScript.py
+```
+ ```
+ import sys
+ 
+ def main():
+    # EXAMPLE FOR TERMINAL - python JobMultiHostScript.py [SCRIPT-FILE] [HOSTS]
+    argumentCounter = 0
+    for arg in sys.argv[1:]:
+        # Script file
+        if argumentCounter == 0:
+            scriptFile = arg
+        # Get hosts
+        else:
+            hosts = arg
+        argumentCounter = argumentCounter + 1
+    with open(scriptFile) as f:
+        script = f.readlines()
+    script = ''.join(script)
+    hosts = Parameter.expand(hosts)
+    result = JobMultiHostScript.execute(script, "terminal_script", hosts)
+if __name__ == '__main__':
+    main()
+    """script =
+    # This is a comment
+    # Task: pwd
+    pwd     # tag: pwd
+    # Task:  uname
+    uname -a
+    "";
+    hosts = Parameter.expand("purple[01-02]")
+    result = JobMultiHostScript.execute(script, "script_name", hosts,
+                                        beginLine="# Task: pwd", endLine="# Task: uname")
+    """
+
+ ```
+ 
+ `python JobMultiHostScript.py ~/sp20-516-252/pi_hadoop/bin/worker-installation.sh red[001-002]`
 
 After that you should see java 8 is installed:
 ```
