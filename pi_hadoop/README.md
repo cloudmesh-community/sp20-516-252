@@ -270,9 +270,6 @@ Edit yarn-site.xml
 </configuration>
 ```
 
-??? Check if need to change permission by doing 
-`sudo chown pi:pi -R /opt/hadoop`
-
 Format Namenode
 
 ```
@@ -303,7 +300,7 @@ cd $HADOOP_HOME/sbin/
 ./start-dfs.sh
 ```
 
-You should see
+You should see lines like below. You can ignore the WARN.
 ```buildoutcfg
 Starting namenodes on [red]
 Starting datanodes
@@ -319,7 +316,9 @@ Starting resourcemanager
 Starting nodemanagers
 ```
 
-Then run `jps`
+Then run `jps`. All these six items should be there. Missing any of them
+ might cause failture of Hadoop work.
+
 ```buildoutcfg
 $ jps
 2736 NameNode
@@ -330,9 +329,13 @@ $ jps
 3935 Jps
 ```
 
-Check the node online, type in `http://red:9870`
+Check the node online, type in `http://red:9870` on your web browser
 You should see a web page showing resources.
 `http://red:8088` shows nodes of the cluster. 
+
+![red:9870_on_web](images/resource-manager-web.png)
+
+
 
 ## An example calculation pi using master
 
