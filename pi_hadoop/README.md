@@ -122,7 +122,7 @@ If it is installed successfully on workers, you should see returns similar to
             'stdout': b''}}
 ```
 
-## Install jps on master
+## Install jps on master (on file)
 
 jps (Java Virtual Machine Process Status Tool) is a command is used to check all the Hadoop daemons like NameNode, DataNode, ResourceManager, NodeManager etc. which are running on the machine.
 
@@ -239,6 +239,18 @@ Edit mapred-site.xml
     <name>mapreduce.framework.name</name>
     <value>yarn</value>
   </property>
+<property>
+ <name>yarn.app.mapreduce.am.env</name>
+ <value>HADOOP_MAPRED_HOME=$HADOOP_HOME</value>
+</property>
+<property>
+ <name>mapreduce.map.env</name>
+ <value>HADOOP_MAPRED_HOME=$HADOOP_HOME</value>
+</property>
+<property>
+ <name>mapreduce.reduce.env</name>
+ <value>HADOOP_MAPRED_HOME=$HADOOP_HOME</value>
+</property>
 </configuration>
 
 ```
@@ -317,11 +329,51 @@ Check the node online, type in `http://red:9870`
 You should see a web page showing resources.
 `http://red:8088` shows nodes of the cluster. 
 
+## An example calculation pi using master
+
+run the line below
+```buildoutcfg
+hadoop jar /opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.0.jar pi 2 5
+```
+Here we have set 
+```buildoutcfg
+number of maps = 2
+Samples per Map = 5
+```
+You should get results similar to 
+```buildoutcfg
+...
+Job Finished in 35.558 seconds
+Estimated value of Pi is 3.60000000000000000000
+```
+Change to 
+```buildoutcfg
+Number of Maps  = 16
+Samples per Map = 1000
+```
+You should expect a result with higher accuracy
+```buildoutcfg
+...
+Job Finished in 64.2 seconds
+Estimated value of Pi is 3.15000000000000000000
+```
+
 ## create cluster with multiple Pi
 
 
+-- might need install jps on workers?
+
+Change ownership of the destination folder, then paste the file to it
+```buildoutcfg
+ssh red001
+chown pi /opt
+scp -r /opt/hadoop red001:/opt
+```
+
+hadoop jar /opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.0.jar pi 2 5
 
 
+/opt/jdk/jre
 
 
 
