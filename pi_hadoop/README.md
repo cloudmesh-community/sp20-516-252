@@ -2,6 +2,7 @@
 
 Reference for setup:
 https://github.com/cloudmesh/cloudmesh-pi-burn
+https://github.com/cloudmesh/cloudmesh-pi-cluster
 https://github.com/cloudmesh/cloudmesh-pi-cluster/blob/master/cloudmesh/bridge/README.md
 
 For the numpy issue:
@@ -27,16 +28,13 @@ Hadoop requires Java. Raspbian Desktop doesn't come with Java installed
 cd ~
 git clone https://github.com/cloudmesh-community/sp20-516-252.git
 cd sp20-516-252/pi_hadoop/bin
-sh setup-master.sh
+echo "Y" | sh setup-master.sh
 ```
-If asked: " Do you want to continue?[Y/n]" Enter, Y.
-(Maybe try this to avoid type "Y"
-`echo "Y" | sh setup-master.sh`
-)
 
-Check if the java installation is successful by running
+Check if the java and jps installation is successful by running
 `
 $ java -version
+$ jps
 `
 
 It should expect return
@@ -44,12 +42,20 @@ It should expect return
 openjdk version "1.8.0_212"
 OpenJDK Runtime Environment (build 1.8.0_212-8u212-b01-1+rpi1-b01)
 OpenJDK Client VM (build 25.212-b01, mixed mode)
+
+11630 Jps
 ```
 
 ## Install Java on worker nodes
 
 Since workers don't have access to network, java can be installed by master
  passing the installation package to workers.
+ 
+ Ensure you can ssh into workers without password
+ ```buildoutcfg
+$ ssh red001
+$ ssh red002
+```
  
  run command 
   ```
@@ -103,7 +109,7 @@ if __name__ == '__main__':
  `python JobMultiHostScript.py ~/sp20-516-252/pi_hadoop/bin/worker-installation.sh red[001-002]`
 
 If it is installed successfully on workers, you should see returns similar to
- this:
+ this. Basically, stdout shouldnt tell you there is any error.
  
 ```
 {'red001': {'command': 'java -version',
@@ -122,23 +128,14 @@ If it is installed successfully on workers, you should see returns similar to
             'stdout': b''}}
 ```
 
-## Install jps on master (on file)
-
-jps (Java Virtual Machine Process Status Tool) is a command is used to check all the Hadoop daemons like NameNode, DataNode, ResourceManager, NodeManager etc. which are running on the machine.
-
-To install:
-
-```
-sudo apt-get -y install openjdk-8-jdk-headless default-jre
-```
-If it is successfully installed, after command `jps` it should show something
- similar to
- 
-```buildoutcfg
-10116 Jps
-```
-
 ## Install Hadoop on Master Node (on file)
+
+```buildoutcfg
+$ sh ~/sp20-516-252/pi_hadoop/bin/install-hadoop-master.sh
+$ cd && hadoop version | grep Hadoop
+$ sh ~/sp20-516-252/pi_hadoop/bin/install-hadoop-master2.sh
+? nano ~/.bashrc
+```
 
 Download and install Hadoop version 3.2.0
 ```
@@ -182,6 +179,14 @@ cd && hadoop version | grep Hadoop
 You should expect `Hadoop 3.2.0`
 
 ## Starting Hadoop (below no on file)
+
+```buildoutcfg
+$ sh ~/sp20-516-252/pi_hadoop/bin/master-start-hadoop.sh
+$ source ~/.bashrc
+
+```
+
+
 
 Set environment variables. Add to the end of `~/.bashrc`
 ```buildoutcfg
