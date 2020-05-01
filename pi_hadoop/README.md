@@ -140,7 +140,7 @@ If it is successfully installed, after command `jps` it should show something
 
 ## Install Hadoop on Master Node
 
-?? Download and install Hadoop version 3.2.0
+Download and install Hadoop version 3.2.0
 ```
 $ cd ~
 $ wget https://archive.apache.org/dist/hadoop/common/hadoop-3.2.0/hadoop-3.2.0.tar.gz
@@ -148,10 +148,15 @@ $ sudo tar -xvzf hadoop-3.2.0.tar.gz -C /opt/
 $ cd /opt/
 $ sudo mv hadoop-3.2.0 hadoop
 ```
+Change permission on the directory
+```buildoutcfg
+sudo chown pi:pi -R /opt/hadoop
+```
+
 
 Set up Environment. Edit `~/.bashrc` and append the following lines
 ```buildoutcfg
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-armhf/bin
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-armhf
 export HADOOP_HOME=/opt/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 ```
@@ -170,6 +175,25 @@ If you are unsure where your JAVA_HOME path is, simply try
 `dirname $(dirname $(readlink -f $(which javac)))`
 , which returns HOME_PATH.
 
+Now check if Hadoop has been successfully installed
+```buildoutcfg
+cd && hadoop version | grep Hadoop
+```
+You should expect `Hadoop 3.2.0`
+
+## Starting Hadoop
+
+Set environment variables. Add to the end of `~/.bashrc`
+```buildoutcfg
+export HADOOP_INSTALL=$HADOOP_HOME
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+```
+Then `source ~/.bashrc`
+
 Setup Hadoop Configuration Files
 ```
 $ cd /opt/hadoop/etc/hadoop
@@ -181,7 +205,7 @@ Edit core-site.xml
 <configuration>
 <property>
   <name>fs.default.name</name>
-    <value>hdfs://localhost:9000</value>
+    <value>hdfs://red:9000</value>
 </property>
 </configuration>
 ```
@@ -190,45 +214,47 @@ Edit hdfs-site.xml
 
 ```
 <configuration>
-  <property>
-    <name>dfs.datanode.data.dir</name>
-    <value>file:///opt/hadoop_tmp/hdfs/datanode</value>
-  </property>
-  <property>
-    <name>dfs.namenode.name.dir</name>
-    <value>file:///opt/hadoop_tmp/hdfs/namenode</value>
-  </property>
-  <property>
-    <name>dfs.replication</name>
-    <value>1</value>
-  </property>
-</configuration> 
+<property>
+ <name>dfs.replication</name>
+ <value>1</value>
+</property>
+
+<property>
+  <name>dfs.name.dir</name>
+    <value>file:///opt/hadoop/hadoopdata/hdfs/namenode</value>
+</property>
+
+<property>
+  <name>dfs.data.dir</name>
+    <value>file:///opt/hadoop/hadoopdata/hdfs/datanode</value>
+</property>
+</configuration>
 ```
 
 Edit mapred-site.xml
 
 ```
 <configuration>
- <property>
-  <name>mapreduce.framework.name</name>
-   <value>yarn</value>
- </property>
+  <property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+  </property>
 </configuration>
+
 ```
 Edit yarn-site.xml
 
 ```
 <configuration>
-  <property>
-    <name>yarn.nodemanager.aux-services</name>
+ <property>
+  <name>yarn.nodemanager.aux-services</name>
     <value>mapreduce_shuffle</value>
-  </property>
-  <property>
-    <name>yarn.nodemanager.auxservices.mapreduce.shuffle.class</name>  
-    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
-  </property>
-</configuration> 
+ </property>
+</configuration>
 ```
+
+??? Check if need to change permission by doing 
+`sudo chown pi:pi -R /opt/hadoop`
 
 Format Namenode
 
@@ -236,28 +262,66 @@ Format Namenode
 $ hdfs namenode -format
 ```
 
-start Hadoop Cluster
+You should see lines like 
+```buildoutcfg
+...
+2020-04-30 23:40:52,936 INFO common.Storage: Storage directory /opt/hadoop/hadoopdata/hdfs/namenode has been successfully formatted.
+2020-04-30 23:40:52,978 INFO namenode.FSImageFormatProtobuf: Saving image file /opt/hadoop/hadoopdata/hdfs/namenode/current/fsimage.ckpt_0000000000000000000 using no compression
+2020-04-30 23:40:53,276 INFO namenode.FSImageFormatProtobuf: Image file /opt/hadoop/hadoopdata/hdfs/namenode/current/fsimage.ckpt_0000000000000000000 of size 397 bytes saved in 0 seconds .
+2020-04-30 23:40:53,325 INFO namenode.NNStorageRetentionManager: Going to retain 1 images with txid >= 0
+2020-04-30 23:40:53,337 INFO namenode.NameNode: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at red/127.0.1.1
+************************************************************/
 
 ```
-cd $HADOOP_HOME/sbin/
-./start-dfs.sh
-```
-If you got an error similar to `Hadoop: start-dfs.sh permission denied`, then
- do the following:
+
+
+## start Hadoop Cluster
+First of all, get the permission, then we will start dfs
 
 ```
 cd ~/.ssh
 cat id_rsa.pub >> authorized_keys
-```
-Then,
-```
 cd $HADOOP_HOME/sbin/
 ./start-dfs.sh
 ```
-You should see
-...
 
--- then start yarn?
+You should see
+```buildoutcfg
+Starting namenodes on [red]
+Starting datanodes
+Starting secondary namenodes [red]
+2020-04-30 23:46:50,198 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+```
+
+Then start yarn, see the return
+```buildoutcfg
+$ ./start-yarn.sh
+Starting resourcemanager
+Starting nodemanagers
+```
+
+Then run `jps`
+```buildoutcfg
+$ jps
+2736 NameNode
+2850 DataNode
+3430 NodeManager
+3318 ResourceManager
+3020 SecondaryNameNode
+3935 Jps
+```
+
+Check the node online, type in `http://red:9870`
+You should see a web page showing resources.
+
+
+
+
+
+
 
 
 --
@@ -270,3 +334,4 @@ sudo update-alternatives --install /usr/bin/javac javac /usr/java/jre/bin/java 1
 references
 1. https://gist.github.com/filipelenfers/ef3f593deb0751944bb54b744bcac074
 2. https://dev.to/awwsmm/building-a-raspberry-pi-hadoop-spark-cluster-8b2#hadoopspark
+3. https://tecadmin.net/setup-hadoop-single-node-cluster-on-centos-redhat/
