@@ -138,7 +138,7 @@ If it is successfully installed, after command `jps` it should show something
 10116 Jps
 ```
 
-## Install Hadoop on Master Node
+## Install Hadoop on Master Node (on file)
 
 Download and install Hadoop version 3.2.0
 ```
@@ -181,7 +181,7 @@ cd && hadoop version | grep Hadoop
 ```
 You should expect `Hadoop 3.2.0`
 
-## Starting Hadoop
+## Starting Hadoop (below no on file)
 
 Set environment variables. Add to the end of `~/.bashrc`
 ```buildoutcfg
