@@ -276,8 +276,7 @@ SHUTDOWN_MSG: Shutting down NameNode at red/127.0.1.1
 
 ```
 
-
-## start Hadoop Cluster
+## start single node on master
 First of all, get the permission, then we will start dfs
 
 ```
@@ -316,6 +315,9 @@ $ jps
 
 Check the node online, type in `http://red:9870`
 You should see a web page showing resources.
+`http://red:8088` shows nodes of the cluster. 
+
+## create cluster with multiple Pi
 
 
 
