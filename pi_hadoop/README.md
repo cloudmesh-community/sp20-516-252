@@ -1,21 +1,19 @@
 # Hadoop Clusters with Raspberry Pi Jessica Zhu sp20-516-252
 
 Reference for setup:
-https://github.com/cloudmesh/cloudmesh-pi-burn
-https://github.com/cloudmesh/cloudmesh-pi-cluster
-https://github.com/cloudmesh/cloudmesh-pi-cluster/blob/master/cloudmesh/bridge/README.md
+<https://github.com/cloudmesh/cloudmesh-pi-burn>
+<https://github.com/cloudmesh/cloudmesh-pi-cluster>
+<https://github.com/cloudmesh/cloudmesh-pi-cluster/blob/master/cloudmesh/bridge/README.md>
 
 For the numpy issue:
-https://github.com/numpy/numpy/issues/14348
+<https://github.com/numpy/numpy/issues/14348>
 
 
-For reference, master and workers are burnt using `cloudmesh-pi-cluster`.
+Master and workers are burnt using `cloudmesh-pi-cluster`.
     master: pi@red
     workers: red[001 - 002]
 
 and bridge has been properly created.
-
-You should make sure that workers can be logged in without password
 
 ## install Java on master and workers
 
@@ -46,7 +44,7 @@ OpenJDK Client VM (build 25.212-b01, mixed mode)
 11630 Jps
 ```
 
-## Install Java on worker nodes
+### Install Java on worker nodes
 
 Since workers don't have access to network, java can be installed by master
  passing the installation package to workers.
