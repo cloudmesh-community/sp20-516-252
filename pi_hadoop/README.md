@@ -102,20 +102,38 @@ if __name__ == '__main__':
  
  `python JobMultiHostScript.py ~/sp20-516-252/pi_hadoop/bin/worker-installation.sh red[001-002]`
 
-After that you should see java 8 is installed:
+If it is installed successfully on workers, you should see returns similar to
+ this:
+ 
 ```
-$ java -version
-openjdk version "1.8.0_212"
-OpenJDK Runtime Environment (build 1.8.0_212-8u212-b01-1+rpi1-b01)
-OpenJDK Client VM (build 25.212-b01, mixed mode)
+{'red001': {'command': 'java -version',
+            'host': 'red001',
+            'name': 'red001',
+            'returncode': 0,
+            'status': 'done',
+            'stderr': '',
+            'stdout': b''},
+ 'red002': {'command': 'java -version',
+            'host': 'red002',
+            'name': 'red002',
+            'returncode': 0,
+            'status': 'done',
+            'stderr': '',
+            'stdout': b''}}
 ```
 
 ## Install jps on master
 
+jps (Java Virtual Machine Process Status Tool) is a command is used to check all the Hadoop daemons like NameNode, DataNode, ResourceManager, NodeManager etc. which are running on the machine.
+
+To install:
+
 ```
 sudo apt-get -y install openjdk-8-jdk-headless default-jre
 ```
-If it is successfully installed, it should show something similar to
+If it is successfully installed, after command `jps` it should show something
+ similar to
+ 
 ```buildoutcfg
 10116 Jps
 ```
@@ -128,19 +146,25 @@ $ cd ~
 $ wget https://archive.apache.org/dist/hadoop/common/hadoop-3.2.0/hadoop-3.2.0.tar.gz
 $ sudo tar -xvzf hadoop-3.2.0.tar.gz -C /opt/
 $ cd /opt/
-$ mv hadoop-3.1.0 hadoop
+$ sudo mv hadoop-3.2.0 hadoop
 ```
 
-Set up Environment. Edit `~/.bashrc` and append the following lines 
+Set up Environment. Edit `~/.bashrc` and append the following lines
+```buildoutcfg
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-armhf/bin
+export HADOOP_HOME=/opt/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+```
+
 Then apply the changes to the running environment
 ```
 $ source ~/.bashrc
 ```
 
 Now set up Hadoop environment by editing `$ /opt/hadoop/etc/hadoop/hadoop-env.sh`
-
+Add the line below to the end of the file
 ```
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-armhf
 ```
 If you are unsure where your JAVA_HOME path is, simply try 
 `dirname $(dirname $(readlink -f $(which javac)))`
@@ -148,7 +172,7 @@ If you are unsure where your JAVA_HOME path is, simply try
 
 Setup Hadoop Configuration Files
 ```
-$ cd $/opt/hadoop/etc/hadoop
+$ cd /opt/hadoop/etc/hadoop
 ```
 
 Edit core-site.xml
@@ -166,23 +190,22 @@ Edit hdfs-site.xml
 
 ```
 <configuration>
-<property>
- <name>dfs.replication</name>
- <value>1</value>
-</property>
-
-<property>
-  <name>dfs.name.dir</name>
-    <value>file:///home/hadoop/hadoopdata/hdfs/namenode</value>
-</property>
-
-<property>
-  <name>dfs.data.dir</name>
-    <value>file:///home/hadoop/hadoopdata/hdfs/datanode</value>
-</property>
-</configuration>
+  <property>
+    <name>dfs.datanode.data.dir</name>
+    <value>file:///opt/hadoop_tmp/hdfs/datanode</value>
+  </property>
+  <property>
+    <name>dfs.namenode.name.dir</name>
+    <value>file:///opt/hadoop_tmp/hdfs/namenode</value>
+  </property>
+  <property>
+    <name>dfs.replication</name>
+    <value>1</value>
+  </property>
+</configuration> 
 ```
-Edit hdfs-site.xml
+
+Edit mapred-site.xml
 
 ```
 <configuration>
@@ -196,11 +219,15 @@ Edit yarn-site.xml
 
 ```
 <configuration>
- <property>
-  <name>yarn.nodemanager.aux-services</name>
+  <property>
+    <name>yarn.nodemanager.aux-services</name>
     <value>mapreduce_shuffle</value>
- </property>
-</configuration>
+  </property>
+  <property>
+    <name>yarn.nodemanager.auxservices.mapreduce.shuffle.class</name>  
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  </property>
+</configuration> 
 ```
 
 Format Namenode
