@@ -365,6 +365,11 @@ Job Finished in 64.2 seconds
 Estimated value of Pi is 3.15000000000000000000
 ```
 
+You can stop Hadoop by running 
+```
+./stop-all.sh
+```
+
 ## create cluster with multiple Pi
 
 
