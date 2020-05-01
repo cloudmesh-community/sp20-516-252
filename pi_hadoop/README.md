@@ -1,6 +1,7 @@
 # Hadoop Clusters with Raspberry Pi Jessica Zhu sp20-516-252
 
 Reference for setup:
+
 <https://github.com/cloudmesh/cloudmesh-pi-burn>
 <https://github.com/cloudmesh/cloudmesh-pi-cluster>
 <https://github.com/cloudmesh/cloudmesh-pi-cluster/blob/master/cloudmesh/bridge/README.md>
