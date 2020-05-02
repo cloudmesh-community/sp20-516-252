@@ -185,7 +185,6 @@ You should expect `Hadoop 3.2.0`
 ```buildoutcfg
 $ sh ~/sp20-516-252/pi_hadoop/bin/master-start-hadoop.sh
 $ source ~/.bashrc
-
 ```
 --compile code below
 
@@ -199,13 +198,15 @@ export YARN_HOME=$HADOOP_HOME
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 ```
 Then `source ~/.bashrc`
+
+
 -----
 
 
 Setup Hadoop Configuration Files
 ```
 $ cd /opt/hadoop/etc/hadoop
-$ sudo apt-get install -y xmlstarlet
+$ cp ~/sp20-516-252/pi_hadoop/bin/hadoop-config-file/core-site.xml /opt/hadoop/etc/hadoop/core-site.xml
 ```
 
 Edit core-site.xml
@@ -218,8 +219,6 @@ Edit core-site.xml
 </property>
 </configuration>
 ```
-
-xmlstarlet ed -a /configuration -t elem -n property -v ""
 
 Edit hdfs-site.xml
 
