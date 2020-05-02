@@ -131,11 +131,14 @@ If it is installed successfully on workers, you should see returns similar to
 
 ```buildoutcfg
 $ sh ~/sp20-516-252/pi_hadoop/bin/install-hadoop-master.sh
+$ source ~/.bashrc
 $ cd && hadoop version | grep Hadoop
 $ sh ~/sp20-516-252/pi_hadoop/bin/install-hadoop-master2.sh
-? nano ~/.bashrc
 ```
 
+
+Below compressed 
+-----------------
 Download and install Hadoop version 3.2.0
 ```
 $ cd ~
@@ -184,8 +187,7 @@ $ sh ~/sp20-516-252/pi_hadoop/bin/master-start-hadoop.sh
 $ source ~/.bashrc
 
 ```
-
-
+--compile code below
 
 Set environment variables. Add to the end of `~/.bashrc`
 ```buildoutcfg
@@ -197,10 +199,13 @@ export YARN_HOME=$HADOOP_HOME
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 ```
 Then `source ~/.bashrc`
+-----
+
 
 Setup Hadoop Configuration Files
 ```
 $ cd /opt/hadoop/etc/hadoop
+$ sudo apt-get install -y xmlstarlet
 ```
 
 Edit core-site.xml
@@ -213,6 +218,8 @@ Edit core-site.xml
 </property>
 </configuration>
 ```
+
+xmlstarlet ed -a /configuration -t elem -n property -v ""
 
 Edit hdfs-site.xml
 
