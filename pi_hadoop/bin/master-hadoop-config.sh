@@ -5,7 +5,3 @@ cp ~/sp20-516-252/pi_hadoop/bin/hadoop-config-file/hdfs-site.xml /opt/hadoop/etc
 cp ~/sp20-516-252/pi_hadoop/bin/hadoop-config-file/mapred-site.xml /opt/hadoop/etc/hadoop/mapred-site.xml
 cp ~/sp20-516-252/pi_hadoop/bin/hadoop-config-file/yarn-site.xml /opt/hadoop/etc/hadoop/yarn-site.xml
 hdfs namenode -format
-
-cd ~/.ssh
-cat id_rsa.pub >> authorized_keys
-cd $HADOOP_HOME/sbin/

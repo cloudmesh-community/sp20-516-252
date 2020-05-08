@@ -1,3 +1,5 @@
+# Setting up a Pi Hadoop Cluster
+
 # Hadoop Clusters with Raspberry Pi Jessica Zhu sp20-516-252
 
 Reference for setup:
@@ -9,6 +11,15 @@ Reference for setup:
 For the numpy issue:
 <https://github.com/numpy/numpy/issues/14348>
 
+
+```
+$ echo "Y" | sudo apt install libatlas3-base libgfortran5
+$ sudo pip3 install numpy
+```
+
+
+To ssh into master for the first time, on your own computer, do
+`rm -f .ssh/known_hosts`
 
 Master and workers are burnt using `cloudmesh-pi-cluster`.
     master: pi@red
@@ -24,9 +35,7 @@ Hadoop requires Java. Raspbian Desktop doesn't come with Java installed
 ### Install Java on master node
 
 ```
-cd ~
-git clone https://github.com/cloudmesh-community/sp20-516-252.git
-cd sp20-516-252/pi_hadoop/bin
+cd ~/cm/cloudmesh-pi-cluster/cloudmesh/pi/cluster/hadoop/bin
 echo "Y" | sh setup-master.sh
 ```
 
@@ -51,6 +60,9 @@ Since workers don't have access to network, java can be installed by master
  passing the installation package to workers.
  
  Ensure you can ssh into workers without password
+ 
+ ## (ENSURE YOU HAVE INPUT TAKE THE NUMBER OF WORKERS)
+ 
  ```buildoutcfg
 $ ssh red001
 $ ssh red002
@@ -73,7 +85,7 @@ sudo nano JobMultiHostScript.py
  ```
  import sys
  
- def main():
+def main():
     # EXAMPLE FOR TERMINAL - python JobMultiHostScript.py [SCRIPT-FILE] [HOSTS]
     argumentCounter = 0
     for arg in sys.argv[1:]:
@@ -105,7 +117,7 @@ if __name__ == '__main__':
 
  ```
  
- `python JobMultiHostScript.py ~/sp20-516-252/pi_hadoop/bin/worker-installation.sh red[001-002]`
+ `python JobMultiHostScript.py ~/cm/cloudmesh-pi-cluster/cloudmesh/pi/cluster/hadoop/bin/worker-installation.sh red[001-002]`
 
 If it is installed successfully on workers, you should see returns similar to
  this. Basically, stdout shouldnt tell you there is any error.
@@ -130,10 +142,10 @@ If it is installed successfully on workers, you should see returns similar to
 ## Install Hadoop on Master Node (on file)
 
 ```buildoutcfg
-$ sh ~/sp20-516-252/pi_hadoop/bin/install-hadoop-master.sh
+$ sh ~/cm/cloudmesh-pi-cluster/cloudmesh/pi/cluster/hadoop/bin/install-hadoop-master.sh
 $ source ~/.bashrc
+$ sh ~/cm/cloudmesh-pi-cluster/cloudmesh/pi/cluster/hadoop/bin/install-hadoop-master2.sh
 $ cd && hadoop version | grep Hadoop
-$ sh ~/sp20-516-252/pi_hadoop/bin/install-hadoop-master2.sh
 ```
 
 
@@ -183,10 +195,10 @@ You should expect `Hadoop 3.2.0`
 ## Starting Hadoop (below no on file)
 
 ```buildoutcfg
-$ sh ~/sp20-516-252/pi_hadoop/bin/master-start-hadoop.sh
+$ sh ~/cm/cloudmesh-pi-cluster/cloudmesh/pi/cluster/hadoop/bin/master-start-hadoop.sh
 $ source ~/.bashrc
 ```
---compile code below
+--compiled code below
 
 Set environment variables. Add to the end of `~/.bashrc`
 ```buildoutcfg
@@ -205,9 +217,11 @@ Then `source ~/.bashrc`
 
 Setup Hadoop Configuration Files
 ```
-$ cd /opt/hadoop/etc/hadoop
-$ cp ~/sp20-516-252/pi_hadoop/bin/hadoop-config-file/core-site.xml /opt/hadoop/etc/hadoop/core-site.xml
+$ sh ~/cm/cloudmesh-pi-cluster/cloudmesh/pi/cluster/hadoop/bin/master-hadoop-config.sh
 ```
+
+--- Below compressed
+
 
 Edit core-site.xml
 
@@ -274,6 +288,8 @@ Edit yarn-site.xml
  </property>
 </configuration>
 ```
+
+---
 
 Format Namenode
 
@@ -379,7 +395,141 @@ You can stop Hadoop by running
 ## create cluster with multiple Pi
 
 
--- might need install jps on workers?
+# install java
+
+in ~/.bashrc add line `export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-armhf`
+`source ~/.bashrc`
+
+Check JAVA_HOME
+`echo $JAVA_HOME`
+
+# copy and install hadoop on workers
+
+scp -r /home/pi/hadoop-3.2.0.tar.gz red001:
+ssh red001
+sudo tar -xvzf hadoop-3.2.0.tar.gz -C /opt/
+sudo mv /opt/hadoop-3.2.0 /opt/hadoop
+sudo chown pi:pi -R /opt/hadoop
+
+# install jps
+nano ~/.bashrc
+alias jps='/usr/lib/jvm/java-8-openjdk-armhf/bin/jps'
+source ~/.bashrc
+jps
+
+# remove hdfs folder files on master
+
+cd ~/opt/hadoop/hadoopdata/hdfs
+
+# Set hadoop env on Worker
+
+ssh red001
+sudo nano  /opt/hadoop/etc/hadoop/hadoop-env.sh
+   export JAVA_HOME=/opt/jdk/jre
+
+core-site.xml
+
+```
+<configuration>
+<property>
+  <name>fs.defaultFS</name>
+    <value>hdfs://red:9000</value>
+</property>
+</configuration>
+
+```
+
+hdfs-site.xml
+
+```
+<configuration>
+<property>
+ <name>dfs.replication</name>
+ <value>2</value>
+</property>
+
+<property>
+  <name>dfs.namenode.name.dir</name>
+    <value>file:///opt/hadoop/hadoopdata/hdfs/namenode</value>
+</property>
+<property>
+  <name>dfs.datanode.data.dir</name>
+    <value>file:///opt/hadoop/hadoopdata/hdfs/datanode</value>
+</property>
+<property>
+  <name>dfs.blocksize</name>
+  <value>10000</value> 
+</property>
+</configuration>
+
+```
+
+mapred-site.xml
+
+```
+<configuration>
+  <property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+  </property>
+  <property>
+    <name>mapreduce.map.memory.mb</name>
+    <value>128</value>
+  </property>
+  <property>
+    <name>mapreduce.reduce.memory.mb</name>
+    <value>128</value>
+  </property>
+</configuration>
+```
+
+yarn-site.xml
+
+```
+<?xml version="1.0"?>
+
+<configuration>
+ <property>
+  <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+ </property>
+<property>
+  <name>yarn.resourcemanager.hostname</name>
+  <value>red</value>
+</property>
+<property>
+        <name>yarn.nodemanager.resource.memory-mb</name>
+        <value>1536</value>
+</property>
+
+<property>
+        <name>yarn.scheduler.maximum-allocation-mb</name>
+        <value>1536</value>
+</property>
+
+<property>
+        <name>yarn.scheduler.minimum-allocation-mb</name>
+        <value>128</value>
+</property>
+</configuration>
+```
+
+scp /opt/hadoop/etc/hadoop/* red002:/opt/hadoop/etc/hadoop/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------ Below gibberish ---
 
 Change ownership of the destination folder, then paste the file to it
 ```buildoutcfg
@@ -390,10 +540,7 @@ scp -r /opt/hadoop red001:/opt
 
 hadoop jar /opt/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.0.jar pi 2 5
 
-
 /opt/jdk/jre
-
-
 
 
 --

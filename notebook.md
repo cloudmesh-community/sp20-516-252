@@ -1,5 +1,18 @@
 # Notebook Jessica Zhu sp20-516-252
 
+## Week 05/04/2020 - 05/10/2020
+
+
+## Week 04/27/2020 - 05/03/2020
+
+- Wrote bash file to automate Hadoop installation
+- setting up the cluster
+- setting up test.py
+
+## Week 04/20/2020 - 04/26/2020
+
+ - Installed Hadoop
+
 ## Week 04/13/2020 - 04/19/2020
 
  - Installing Hadoop on Pi, issues with static IP
