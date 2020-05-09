@@ -2,6 +2,9 @@
 
 ## Week 05/04/2020 - 05/10/2020
 
+- wrote up `cms pi haddop` commands
+- tested spark commands
+- worked on Hadoop pi - troubleshoot, implementation
 
 ## Week 04/27/2020 - 05/03/2020
 
